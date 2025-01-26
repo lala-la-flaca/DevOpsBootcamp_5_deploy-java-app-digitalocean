@@ -74,49 +74,18 @@ Following security best practices, configure the firewall's inbound and outbound
        scp <location .jar> <destination on droplet>
     ```
 12. Navigate to the root directory on the droplet and confirm that the file has been successfully uploaded.
-13. 
+13. Since Java was already installed on the droplet (Step 7), you can execute the application.
+    ```bash
+       java -jar java-react-example.jar
+    ```
+14. Navigate to the **Networking** tab in the left menu, select Firewall, and click on the droplet's firewall.
+15. Add a new rule that allows access on port 7071 from all IP addresses, as the app must be accessible to anyone.
+16. Open a browser and use your droplet's IP address:port
+
+    
  
      
-   
-
-<p align="left">
-Cloning Nana’s Java-Gradle application locally: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for the process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-`` --!>
-
+  
 
 
 
