@@ -21,7 +21,7 @@ While DigitalOcean is a paid service, first-time users receive free credits, whi
 - <b>Create and configure a Linux user for secure access.</b>
 
 <h2>Project Architecture </h2>
-<img src=""/>
+<img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/DigitalOcean_Java_App_Architecture.png"/>
 
 
 
