@@ -21,13 +21,26 @@ While DigitalOcean is a paid service, first-time users receive free credits, whi
 - <b>Create and configure a Linux user for secure access.</b>
 
 <h2>Project Architecture </h2>
+<img src=""/>
 
 
 
-<h2>Program walk-through:</h2>
+<h2>Project Configuration:</h2>
 
-<p align="center">
-Launch the utility: <br/>
+# Cloning Nana’s Java-Gradle Application Locally
+
+To clone the Java-Gradle application from Nana DevOps Bootcamp, follow these steps:
+
+## Access the Repository URL
+Find the repository here: [Nana Bootcamp Repository](https://github.com/your-repository-url)
+
+## Run the Following Command
+Open your terminal and execute the following command to clone the repository:
+
+
+
+<p align="left">
+Cloning Nana’s Java-Gradle application locally: <br/>
 <img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
