@@ -159,7 +159,7 @@ The application is running on DigitalOcean, but using the root account is not re
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/RunningAppfromNewUser.png?raw=true"/>
 
     
-   
+7. Access the app via: [Application Running on Digital Ocean](http://167.71.251.169:7071/)
 
 
 
