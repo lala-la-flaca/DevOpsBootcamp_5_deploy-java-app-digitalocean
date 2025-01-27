@@ -82,6 +82,27 @@ Following security best practices, configure the firewall's inbound and outbound
 15. Add a new rule that allows access on port 7071 from all IP addresses, as the app must be accessible to anyone.
 16. Open a browser and use your droplet's IP address:port
 
+
+The application is running on DigitalOcean, but using the root account is not recommended. To follow best practices, create a Linux user with root privileges to start the application and assign only the  required permissions.
+
+### Creating a Linux User on the Droplet.
+1. Create a user on the droplet.
+   ```bash
+      adduser <new_user>
+      adduser lala
+    ```
+2. Add the user to the sudo group
+    ```bash
+       sudo usermod -aG sudo lala
+    ```
+3. Ensure to add the public SSH key to the .SSH directory of the new user.
+4. Add the authorized_keys file and copy the public key of your machine.
+5. Copy the file from the machine to the droplet  using the new user.
+6. Execute the application.
+   
+
+
+
     
  
      
@@ -120,8 +141,7 @@ An example of how to use JS frontend to consume an endpoint written in Java.
 - [Redux](http://redux.js.org/) - State container
 
 ## Additional information
-
-This project is a part of a [presentation](https://docs.google.com/presentation/d/1-yZhsM43cyWWDVn6EUtK_wc39FAv-19_jwsKXlTe2o8/edit?usp=sharing)
+ This project is a part of a [presentation](https://docs.google.com/presentation/d/1-yZhsM43cyWWDVn6EUtK_wc39FAv-19_jwsKXlTe2o8/edit?usp=sharing)
 
 Related projects:
 
