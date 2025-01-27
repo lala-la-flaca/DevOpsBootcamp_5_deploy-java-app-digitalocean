@@ -10,7 +10,7 @@ While DigitalOcean is a paid service, first-time users receive free credits, whi
 
 - <b>Digital Ocean: Cloud provider for hosting the application.</b>
 - <b>Linux: Ubuntu for Server configuration and management.</b>
-- <b>Java/Gradle: Nana's application development and build tools.</b>
+- <b>Java/Gradle: Nana's application and build tools.</b>
 
 
 ## Features
@@ -37,58 +37,85 @@ To clone the Java-Gradle application from Nana DevOps Bootcamp, follow these ste
 1. Sign up for an account on [DigitalOcean](https://www.digitalocean.com).
 2. Create a droplet:<br>
    a) Select **Create Droplet** from the Digital Ocean dashboard. <br>
-   b) Select a region: Select the region closest to your location.<br>
+
+      <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/create%20a%20droplet%201.png?raw=true"/>
+    
+   b) Select a region: Select the region closest to your location.<be>
+
+      <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Droplet%20region.png?raw=true"/>
+
    c) Select an image: Select the Ubuntu image.<br>
+
+      <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/CreatingDropletChooseImage.png?raw=true"/>
+     
      - Choose Size: <br>
        * Droplet type: Select Basic.<br>
        * CPU options: Select Regular SSD and the cheapest option.<br>
-       
+
+       <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/CreatingDropletCPU.png?raw=true"/>
+   
    d) Select the SSH key  as the Authentication Method. <br>
     - Generate a New SSH Key (if required): If you do not have an existing SSH key, follow DigitalOceans's guide to create a new pair.
-    - Use an existing SSH Key: if you already have a public SSK key pair, navigate to the .ssh folder in your local directory. Copy the public key and paste it into the appropiate field in DigitalOCean's interface.<br>
+    - Use an existing SSH Key: if you already have a public SSK key pair, navigate to the .ssh folder in your local directory. Copy the public key and paste it into the appropriate field in DigitalOCean's interface.<br>
+
+      <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/DropletSSH.png?raw=true"/>
 
    e) Select **Create Droplet**
 
 ### Configuring Firewall on Digital Ocean
 Following security best practices, configure the firewall's inbound and outbound rules. In this case, you only allow inbound SSH access from your machine to the Droplet, restricting all other unnecessary connections.
+
 1. Select the **Networking** option from the left panel, then choose **Firewall**.
-2. Click on **Create Firewall**
-3. Set the firewall rules for incoming traffic.<br>
-   Allow SSH access from your machine by adding an inbound rule that allows traffic from the public ip address of your machine on port 22.
-4. SSH into the droplet to verify that everything is working as expected.
-5. Update the package manager on the droplet.
+
+   <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/SettingUpFirewall.png?raw=true"/>
+   
+3. Click on **Create Firewall**
+   
+5. Set the firewall rules for incoming traffic.<br>
+   Allow SSH access from your machine by adding an inbound rule that allows traffic from the public IP address of your machine on port 22.
+
+   <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Firewall2.png?raw=true"/>
+   
+6. SSH into the droplet to verify that everything works as expected.
+
+   <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Access%20to%20Droplet.png?raw=true"/>
+
+   
+8. Update the package manager on the droplet.
    ```bash
        apt update
-7. Install Java openjdk8 on the droplet, as this version is compatible with Nexus, which will be used in the following exercises.
+9. Install Java openjdk8 on the droplet, as this version is compatible with Nexus, which will be used in the following exercises.
    ```bash
        apt install openjdk-8-jre-headless
    ```
-8. Navigate to the directory where the app is stored.
-9. Build the Java application using Gradle from your machine.
+10. Navigate to the directory where the app is stored.
+11. Build the Java application using Gradle from your machine.
+    
    ```bash
        gradle build
-    ```
-10. Locate the .JAR file, which is stored in the build directory under the libs folder.
-11. Navigate to the location of the .jar file and copy the file to the droplet.
+   ```
+11. Locate the .JAR file stored in the build directory under the libs folder.
+12. Navigate to the location of the .jar file and copy the file to the droplet.
+    
     ```bash
        scp <location .jar> <destination on droplet>
     ```
     
-12. Navigate to the root directory on the droplet and confirm that the file has been successfully uploaded.
+14. Navigate to the root directory on the droplet and confirm that the file has been successfully uploaded.
     
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/JarFile%20available%20on%20%20Droplet.png?raw=true"/>
     
-14. Since Java was already installed on the droplet (Step 7), you can execute the application.
+15. Since Java was already installed on the droplet (Step 7), you can execute the application.
     ```bash
        java -jar java-react-example.jar
     ```
     
     
-15. Navigate to the **Networking** tab in the left menu, select Firewall, and click on the droplet's firewall.
+16. Navigate to the **Networking** tab in the left menu, select Firewall, and click on the droplet's firewall.
     
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/SettingUpFirewall.png?raw=true"/>
     
-16. Add a new rule that allows access on port 7071 from all IP addresses, as the app must be accessible to anyone.
+17. Add a new rule that allows access on port 7071 from all IP addresses, as the app must be accessible to anyone.
     
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Allowing%20access%20to%20port%207071.png?raw=true"/>
     
@@ -109,10 +136,23 @@ The application is running on DigitalOcean, but using the root account is not re
     ```bash
        sudo usermod -aG sudo lala
     ```
-3. Ensure to add the public SSH key to the .SSH directory of the new user.
-4. Add the authorized_keys file and copy the public key of your machine.
-5. Copy the file from the machine to the droplet  using the new user.
-6. Execute the application.
+3. Create the .SSH directory for the new user.
+
+   <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/CreatingSSHDirectoryNewUser.png?raw=true"/>
+   
+5. Add the authorized_keys file and copy the public key of your machine.
+
+   <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/SSHpublicKey.png?raw=true"/>
+   
+7. Copy the file from the machine to the droplet  using the new user.
+
+   <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Copying%20the%20file%20to%20new%20user.png?raw=true"/>
+   
+9. Execute the application.
+
+    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/RunningAppfromNewUser.png?raw=true"/>
+
+    
    
 
 
