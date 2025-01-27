@@ -73,14 +73,28 @@ Following security best practices, configure the firewall's inbound and outbound
     ```bash
        scp <location .jar> <destination on droplet>
     ```
+    
 12. Navigate to the root directory on the droplet and confirm that the file has been successfully uploaded.
-13. Since Java was already installed on the droplet (Step 7), you can execute the application.
+    
+    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/JarFile%20available%20on%20%20Droplet.png?raw=true"/>
+    
+14. Since Java was already installed on the droplet (Step 7), you can execute the application.
     ```bash
        java -jar java-react-example.jar
     ```
-14. Navigate to the **Networking** tab in the left menu, select Firewall, and click on the droplet's firewall.
-15. Add a new rule that allows access on port 7071 from all IP addresses, as the app must be accessible to anyone.
-16. Open a browser and use your droplet's IP address:port
+    
+    
+15. Navigate to the **Networking** tab in the left menu, select Firewall, and click on the droplet's firewall.
+    
+    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/SettingUpFirewall.png?raw=true"/>
+    
+16. Add a new rule that allows access on port 7071 from all IP addresses, as the app must be accessible to anyone.
+    
+    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Allowing%20access%20to%20port%207071.png?raw=true"/>
+    
+18. Open a browser and use your droplet's IP address:port
+    
+    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/ApplicationRunningOnDropletPort.PNG?raw=true"/>
 
 
 The application is running on DigitalOcean, but using the root account is not recommended. To follow best practices, create a Linux user with root privileges to start the application and assign only the  required permissions.
