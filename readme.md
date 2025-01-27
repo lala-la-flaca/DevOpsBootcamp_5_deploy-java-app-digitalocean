@@ -68,58 +68,64 @@ Following security best practices, configure the firewall's inbound and outbound
 1. Select the **Networking** option from the left panel, then choose **Firewall**.
 
    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/SettingUpFirewall.png?raw=true"/>
-   
-3. Click on **Create Firewall**
-   
-5. Set the firewall rules for incoming traffic.<br>
-   Allow SSH access from your machine by adding an inbound rule that allows traffic from the public IP address of your machine on port 22.
+
+2. Click on **Create Firewall**
+  
+3. Set the firewall rules for incoming traffic.<br>
+   Allow SSH access from your machine by adding an inbound rule that allows traffic from the public IP address of your machine on port 22. Keep in mind that this IP changes when restarting your machine.
 
    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Firewall2.png?raw=true"/>
    
-6. SSH into the droplet to verify that everything works as expected.
+4. SSH into the droplet to verify that everything works as expected.
 
    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Access%20to%20Droplet.png?raw=true"/>
 
    
-8. Update the package manager on the droplet.
+5. Update the package manager on the droplet.
    ```bash
        apt update
-9. Install Java openjdk8 on the droplet, as this version is compatible with Nexus, which will be used in the following exercises.
+6. Install Java openjdk8 on the droplet, as this version is compatible with Nexus, which will be used in the following exercises.
    ```bash
        apt install openjdk-8-jre-headless
    ```
-10. Navigate to the directory where the app is stored.
-11. Build the Java application using Gradle from your machine.
+7. Navigate to the directory where the app is stored.
+        
+8. Build the Java application using Gradle from your machine.
     
    ```bash
        gradle build
    ```
-11. Locate the .JAR file stored in the build directory under the libs folder.
-12. Navigate to the location of the .jar file and copy the file to the droplet.
+9. Locate the .JAR file stored in the build directory under the libs folder.
+
+     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/BuildGradle%20and%20get%20jar%20file.png?raw=true"/>
+
+    
+10. Navigate to the location of the .jar file and copy the file to the droplet.
     
     ```bash
        scp <location .jar> <destination on droplet>
     ```
+    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Transfering%20jar%20file%20to%20droplet.png?raw=true"/>
     
-14. Navigate to the root directory on the droplet and confirm that the file has been successfully uploaded.
+11. Navigate to the root directory on the droplet and confirm that the file has been successfully uploaded.
     
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/JarFile%20available%20on%20%20Droplet.png?raw=true"/>
     
-15. Since Java was already installed on the droplet (Step 7), you can execute the application.
+12. Since Java was already installed on the droplet (Step 6), you can execute the application.
     ```bash
        java -jar java-react-example.jar
     ```
     
     
-16. Navigate to the **Networking** tab in the left menu, select Firewall, and click on the droplet's firewall.
+13. Navigate to the **Networking** tab in the left menu, select Firewall, and click on the droplet's firewall.
     
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/SettingUpFirewall.png?raw=true"/>
     
-17. Add a new rule that allows access on port 7071 from all IP addresses, as the app must be accessible to anyone.
+14. Add a new rule that allows access on port 7071 from all IP addresses, as the app must be accessible to anyone.
     
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Allowing%20access%20to%20port%207071.png?raw=true"/>
     
-18. Open a browser and use your droplet's IP address:port
+15. Open a browser and use your droplet's IP address:port
     
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/ApplicationRunningOnDropletPort.PNG?raw=true"/>
 
@@ -140,15 +146,15 @@ The application is running on DigitalOcean, but using the root account is not re
 
    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/CreatingSSHDirectoryNewUser.png?raw=true"/>
    
-5. Add the authorized_keys file and copy the public key of your machine.
+4. Add the authorized_keys file and copy the public key of your machine.
 
    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/SSHpublicKey.png?raw=true"/>
    
-7. Copy the file from the machine to the droplet  using the new user.
+5. Copy the file from the machine to the droplet  using the new user.
 
    <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/Copying%20the%20file%20to%20new%20user.png?raw=true"/>
    
-9. Execute the application.
+6. Execute the application.
 
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/RunningAppfromNewUser.png?raw=true"/>
 
