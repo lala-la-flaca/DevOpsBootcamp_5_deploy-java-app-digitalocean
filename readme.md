@@ -6,24 +6,24 @@ While DigitalOcean is a paid service, first-time users receive free credits, whi
 
 <br />
 
-## Technologies Used
+## 🚀 Technologies Used
 
 - <b>Digital Ocean: Cloud provider for hosting the application.</b>
 - <b>Linux: Ubuntu for Server configuration and management.</b>
 - <b>Java/Gradle: Nana's application and build tools.</b>
 
 
-## Features
+## 🎯 Features
 
 - <b>Setup a droplet(VM) in Digital Ocean.</b>
 - <b>Deploy and run a Java Gradle application on a DigitalOcean droplet.</b>
 - <b>Implement security best practices.</b>
 - <b>Create and configure a Linux user for secure access.</b>
 
-## Project Architecture
+## 🏗 Project Architecture
 <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/DigitalOcean_Java_App_Architecture.png"/>
 
-## Project Configuration:
+## ⚙️ Project Configuration:
 ### Cloning Nana’s Java-Gradle Application Locally
 
 To clone the Java-Gradle application from Nana DevOps Bootcamp, follow these steps:
