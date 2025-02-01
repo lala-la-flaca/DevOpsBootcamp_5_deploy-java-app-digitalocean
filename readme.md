@@ -84,9 +84,9 @@ Following security best practices, configure the firewall's inbound and outbound
 5. Update the package manager on the droplet.
    ```bash
        apt update
-6. Install Java openjdk8 on the droplet, as this version is compatible with Nexus, which will be used in the following exercises.
+6. Install Java openjdk17 on the droplet, as this version is compatible with Nexus, which will be used in the following exercises.
    ```bash
-       apt install openjdk-8-jre-headless
+       apt install openjdk-17-jre-headless
    ```
 7. Navigate to the directory where the app is stored.
         
@@ -95,7 +95,7 @@ Following security best practices, configure the firewall's inbound and outbound
    ```bash
        gradle build
    ```
-9. Locate the .JAR file stored in the build directory under the libs folder.
+9. Locate the .JAR file saved in the build directory under the libs folder.
 
      <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/BuildGradle%20and%20get%20jar%20file.png?raw=true"/>
 
@@ -111,7 +111,7 @@ Following security best practices, configure the firewall's inbound and outbound
     
     <img src="https://github.com/lala-la-flaca/deploy-java-app-digitalocean/blob/main/resources/Img/JarFile%20available%20on%20%20Droplet.png?raw=true"/>
     
-12. Since Java was already installed on the droplet (Step 6), you can execute the application.
+12. Since Java is installed on the droplet (Step 6), execute the application.
     ```bash
        java -jar java-react-example.jar
     ```
